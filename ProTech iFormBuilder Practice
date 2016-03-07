@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>iFormBuilder</title>
+</head>
+<body>
+<!-- This snippet of code was used in the iFormBuilder app for ProTech Industries while I was at Vancouver Bolt and Supply. 
+      Its purpose was to test the functionality and syntax of the .subtring and .split methods to separate characters from the 
+      originial string. 
+      
+      In the application, a barcode scanner is used to populate the pt_item field with a part number like the one hard-coded below.
+      The application then shaves off the '$' and any remaining characters off of the part number, and displays it in another input
+      field. In another field, the characters following the '$' are saved in a variable and shown as a quantity. -->
+
+    <p id="pt_item">COT826724$1.000</p>
+    <p id="pt_itemparsed"></p>
+    <p id="pt_quantity"></p>
+
+    <script>
+        var partnum = document.getElementById('pt_item').innerHTML;
+        var parsedpartnum = document.getElementById('pt_itemparsed');
+        var quantity = document.getElementById('pt_quantity');
+
+        parsedpartnum.innerHTML = partnum.substring(0, partnum.indexOf('$'));
+        quantity.innerHTML = partnum.split('$')[1];
+    </script>
+
+</body>
+</html>
